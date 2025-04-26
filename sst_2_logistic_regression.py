@@ -22,6 +22,7 @@ validation_labels = data['validation']['label']
 vectorizer = TfidfVectorizer(
     stop_words='english',  # Use scikit-learn's English stop words
     lowercase=True
+    ngram_range(2,2)
 )
 
 train_tfidf_matrix = vectorizer.fit_transform(train_sentences)
