@@ -20,7 +20,7 @@ validation_sentences = data['validation']['sentence']
 validation_labels = data['validation']['label']
 
 vectorizer = TfidfVectorizer(
-    ngram_range = (2,2),
+    ngram_range = (1,2),
     stop_words='english',  # Use scikit-learn's English stop words
     lowercase=True
 )
