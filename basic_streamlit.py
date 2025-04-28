@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
-img = Image.open("code_sst_2.png")
 import sst_2_logistic_regression
+img = Image.open("code_sst_2.png")
 
 
 st.title("Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank")
