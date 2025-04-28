@@ -53,4 +53,3 @@ def predict_sentiment(sentence):
     else:
         out = "we will try to do ur best :("
     return out
->>>>>>> 5858796 (HII FIRST COMMIT FROM VSCODE)
