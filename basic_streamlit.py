@@ -1,7 +1,8 @@
 import streamlit as st
 from PIL import Image
-img = Image.open("code_sst_2.png")
 import sst_2_logistic_regression
+import sst_5_logistic
+img = Image.open("code_sst_2.png")
 
 
 st.title("Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank")
@@ -17,4 +18,12 @@ name = st.text_input("Enter ur review about bahubali", "Type Here ...")
 # .title() is used to get the input text string
 if(st.button('Submit')):
     out = sst_2_logistic_regression.predict_sentiment(name)
+    st.text(out)
+
+name1 = st.text_input("Enter ur review about bahubali, we will predict using sst5 trained model", "")
+
+# display the name when the submit button is clicked
+# .title() is used to get the input text string
+if(st.button('Submit')):
+    out = sst_5_logistic.predict_sentiment(name)
     st.text(out)
