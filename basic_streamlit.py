@@ -24,6 +24,6 @@ name1 = st.text_input("Enter ur review about bahubali, we will predict using sst
 
 # display the name when the submit button is clicked
 # .title() is used to get the input text string
-if(st.button('Submit')):
+if(st.button('PREDICT')):
     out = sst_5_logistic.predict_sentiment(name1)
     st.text(out)
