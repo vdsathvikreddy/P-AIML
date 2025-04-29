@@ -48,8 +48,10 @@ def predict_sentiment(sentence):
     s= [sentence]
     test = vectorizer.transform(s)
     pred = model.predict(test)
-    if pred == [1]:
+    if pred == [2]:
         out = "it is positive comment!! Thank you:)"
-    else:
+    elif pred == [0]:
         out = "we will try to do ur best :("
+    else:
+        out = "neutral statement"
     return out
