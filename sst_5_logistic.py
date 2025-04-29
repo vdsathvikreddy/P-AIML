@@ -54,5 +54,5 @@ def predict_sentiment(sentence):
     elif pred == [3]:
         out = "good!"
     elif pred == [4]:
-        out == "very good!!"
+        out = "very good!!"
     return out
