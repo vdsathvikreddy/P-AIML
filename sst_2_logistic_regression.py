@@ -31,25 +31,12 @@ test_tfidf_matrix = vectorizer.transform(test_sentences)
 model = LogisticRegression(max_iter=10000)
 model.fit(train_tfidf_matrix, train_labels)
 
-# y_pred = model.predict(validation_tfidf_matrix)
-# print(classification_report(validation_labels, y_pred))
-
-# test_pred = model.predict(test_tfidf_matrix)
-
-# def print_classification():
-#     return classification_report(validation_labels, y_pred)
-sentence = 'amazing movie but graphics are the best'
-s = [sentence]
-test = vectorizer.transform(s)
-
-print(model.predict(test))
-
 def predict_sentiment(sentence):
     s= [sentence]
     test = vectorizer.transform(s)
     pred = model.predict(test)
     if pred == [1]:
-        out = "it is positive comment!! Thank you:)"
+        out = "This is a positive review."
     elif pred == [0]:
-        out = "we will try to do ur best :("
+        out = "This is a negative review."
     return out
