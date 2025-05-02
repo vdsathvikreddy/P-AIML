@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-import sst_2_logistic_regression
+# import sst_2_logistic_regression
 import sst_5_modified
 img = Image.open("code_sst_2.png")
 
