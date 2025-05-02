@@ -1,10 +1,12 @@
 streamlit
 spacy==3.7.2
+thinc==8.2.5
 nltk==3.8.1
 torch==2.2.0
 benepar==0.2.0
-numpy>=1.25.0
-en-core-web-md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.7.0/en_core_web_md-3.7.0.tar.gz
+numpy==1.26.4
+https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.7.0/en_core_web_md-3.7.0.tar.gz
 scikit-learn
 datasets
+Pillow
 requests
