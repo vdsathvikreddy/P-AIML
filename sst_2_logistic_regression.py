@@ -6,7 +6,6 @@ from sklearn.svm import SVC
 import numpy as np
 
 data = load_dataset("sst2")
-
 train_sentences = data['train']['sentence']
 
 train_labels = data['train']['label']
