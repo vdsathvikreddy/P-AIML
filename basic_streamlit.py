@@ -12,6 +12,10 @@ st.header("Training our model using SVM")
 if st.button("classification report using SVM"):
     st.image(img, width = 2000)
 
+acc = sst_5_modified.print_accuracy()
+st.text(#The training accuracy is:")
+st.text(acc)
+
 # name = st.text_input("Enter ur review about bahubali", "Type Here ...")
 
 # # display the name when the submit button is clicked
