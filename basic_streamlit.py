@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 import sst_2_logistic_regression
-import sst_5_logistic
+import sst_5
 img = Image.open("code_sst_2.png")
 
 
@@ -25,5 +25,5 @@ name1 = st.text_input("Enter ur review about bahubali, we will predict using sst
 # display the name when the submit button is clicked
 # .title() is used to get the input text string
 if(st.button('PREDICT')):
-    out = sst_5_logistic.predict_sentiment(name1)
+    out = sst_5.predict_sentiment_sentence(name1)
     st.text(out)
