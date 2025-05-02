@@ -16,9 +16,14 @@ dataset['label'] = dataset['label'].str.replace('__label__', '')
 dataset['label'] = dataset['label'].astype(int)  # Categorical data type for truth labels
 dataset['label'] = dataset['label'] - 1  # Zero-index labels for PyTorch
 
-# Initialize sentences and labels to train
-train_sentences = dataset['text']
-train_labels = dataset['label']
+# Split into features and labels
+sentences = dataset['text']
+labels = dataset['label']
+
+# Split into training and test sets (e.g., 80% train, 20% test)
+train_sentences, test_sentences, train_labels, test_labels = train_test_split(
+    sentences, labels, test_size=0.2, random_state=42, stratify=y  # stratify to preserve label distribution
+)
 
 # Convert text sentences to number form using tfidf vectorizer
 vectorizer = TfidfVectorizer(
@@ -27,23 +32,17 @@ vectorizer = TfidfVectorizer(
 )
 
 train_tfidf_matrix = vectorizer.fit_transform(train_sentences)
-
+test_tfidf_matrix = vectorizer.transform(test_sentences)
 # Define classifier and fit training data
 classifier = LogisticRegression(C=10, penalty='l1', solver='saga', max_iter=10000)
 classifier.fit(train_tfidf_matrix, train_labels)
 
-y_pred = classifier.predict(train_tfidf_matrix)
-accuracy = accuracy_score(train_labels, y_pred)
+y_pred = classifier.predict(test_tfidf_matrix)
+accuracy = accuracy_score(test_labels, y_pred)
 print(f"Training accuracy: {accuracy}")
 
 def print_accuracy():
     return accuracy
-
-# Define sentence for testing
-sentence = 'amazing movie but graphics are the best'
-s = [sentence]
-test = vectorizer.transform(s)
-print(f"Prediction for test sentence: {classifier.predict(test)}")
 
 # Load Spacy model and Benepar once at the start
 nlp = spacy.load("en_core_web_md")
