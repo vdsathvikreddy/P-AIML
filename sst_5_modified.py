@@ -76,11 +76,11 @@ def predict_sentiment_sentence(sentence):
         value += predict_sentiment_phrase(phrases[i])
     value /= len_phrases  # Compute average sentiment score based on phrases
 
-    # if value == 2:
-    #     out = "This review is neutral"
-    # elif value < 2:
-    #     out = "This review is negative"
-    # else:
-    #     out = "This review is positive"
+    if value < 1.5:
+        out = "This review is negative"
+    elif value < 2.5:
+        out = "This review is neutral"
+    else:
+        out = "This review is positive"
     
-    return value
+    return out
