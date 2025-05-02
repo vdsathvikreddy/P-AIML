@@ -36,6 +36,9 @@ y_pred = classifier.predict(train_tfidf_matrix)
 accuracy = accuracy_score(train_labels, y_pred)
 print(f"Training accuracy: {accuracy}")
 
+def print_accuracy():
+    return accuracy
+
 # Define sentence for testing
 sentence = 'amazing movie but graphics are the best'
 s = [sentence]
